@@ -1,6 +1,6 @@
 'use client';
 
-import {Facebook, Github, Instagram, Linkedin, Youtube} from 'lucide-react';
+import {Github, Linkedin} from 'lucide-react';
 import Link from 'next/link';
 
 interface SocialIcon {
@@ -15,28 +15,16 @@ interface SocialsProps {
 
 const icons: SocialIcon[] = [
     {
-        path: 'https://www.youtube.com',
-        name: <Youtube size={24}/>, // Icône Youtube de lucide-react
+        path: 'https://www.linkedin.com/in/yohanbaechle',
+        name: <Linkedin size={24}/>,
     },
     {
-        path: 'https://www.linkedin.com',
-        name: <Linkedin size={24}/>, // Icône LinkedIn de lucide-react
-    },
-    {
-        path: 'https://github.com',
-        name: <Github size={24}/>, // Icône Github de lucide-react
-    },
-    {
-        path: 'https://www.facebook.com',
-        name: <Facebook size={24}/>, // Icône Facebook de lucide-react
-    },
-    {
-        path: 'https://www.instagram.com',
-        name: <Instagram size={24}/>, // Icône Instagram de lucide-react
+        path: 'https://github.com/Yohan-Baechle',
+        name: <Github size={24}/>,
     },
 ];
 
-const Socials: React.FC<SocialsProps> = ({containerStyles, iconsStyles}) => {
+export default function Socials({containerStyles, iconsStyles}: SocialsProps) {
     return (
         <div className={containerStyles}>
             {icons.map((icon, index) => (
@@ -47,5 +35,3 @@ const Socials: React.FC<SocialsProps> = ({containerStyles, iconsStyles}) => {
         </div>
     );
 };
-
-export default Socials;

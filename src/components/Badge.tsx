@@ -1,13 +1,22 @@
 'use client';
+
+import React from "react";
 import CountUp from 'react-countup';
 
-const Badge = ({
+interface BadgeProps {
+    containerStyles: string;
+    icon: React.ReactNode;
+    endCountNum: number;
+    endCountText: string;
+    badgeText: string;
+}
+export default function Badge({
                    containerStyles,
                    icon,
                    endCountNum,
                    endCountText,
                    badgeText,
-               }) => {
+               }: BadgeProps) {
     return (
         <div className={`badge ${containerStyles}`}>
             <div className='text-3xl text-primary'>{icon}</div>
@@ -23,5 +32,3 @@ const Badge = ({
         </div>
     );
 };
-
-export default Badge;

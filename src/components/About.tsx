@@ -1,15 +1,6 @@
-import React from 'react';
 import Image from 'next/image';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-    User2,
-    MailIcon,
-    HomeIcon,
-    PhoneCall,
-    GraduationCap,
-    Calendar,
-    Briefcase,
-} from 'lucide-react';
+import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
+import {Briefcase, GraduationCap, HomeIcon, MailIcon, PhoneCall, User2,} from 'lucide-react';
 import DevImg from './DevImg';
 
 interface InfoItem {
@@ -38,69 +29,61 @@ interface SkillItem {
 
 const infoData: InfoItem[] = [
     {
-        icon: <User2 size={20} />,
-        text: 'Ryan Davis',
+        icon: <User2 size={20}/>,
+        text: 'Yohan Baechlé',
     },
     {
-        icon: <PhoneCall size={20} />,
-        text: '+012 345 6789',
+        icon: <PhoneCall size={20}/>,
+        text: '+33 (0)6 45 36 69 18',
     },
     {
-        icon: <MailIcon size={20} />,
-        text: 'youremail@email.com',
+        icon: <MailIcon size={20}/>,
+        text: 'baechle.yohan@gmail.com',
     },
     {
-        icon: <Calendar size={20} />,
-        text: 'Born on 10 Mar, 1998',
-    },
-    {
-        icon: <GraduationCap size={20} />,
-        text: 'Master on Computer Science',
-    },
-    {
-        icon: <HomeIcon size={20} />,
-        text: '321 Blue Avenue, NY, USA',
+        icon: <HomeIcon size={20}/>,
+        text: 'Toul, Grand Est, France',
     },
 ];
 
 const qualificationData: QualificationItem[] = [
     {
-        title: 'education',
+        title: 'éducation',
         data: [
             {
-                university: 'Example University',
-                qualification: 'Bachelor of Science',
+                university: 'Université Exemple',
+                qualification: 'Licence en Sciences',
                 years: '2015 - 2018',
             },
             {
-                university: 'Another University',
-                qualification: 'Master of Arts',
+                university: 'Autre Université',
+                qualification: 'Master en Arts',
                 years: '2019 - 2021',
             },
             {
-                university: 'Yet Another University',
-                qualification: 'Ph.D in Computer Science',
+                university: 'Encore une autre Université',
+                qualification: 'Doctorat en Informatique',
                 years: '2021 - 2025',
             },
         ],
     },
     {
-        title: 'experience',
+        title: 'expérience',
         data: [
             {
                 company: 'ABC Inc.',
-                role: 'Software Engineer',
+                role: 'Ingénieur Logiciel',
                 years: '2018 - 2020',
             },
             {
                 company: 'XYZ Corporation',
-                role: 'Senior Developer',
+                role: 'Développeur Senior',
                 years: '2020 - 2022',
             },
             {
                 company: 'Tech Innovators',
-                role: 'Lead Developer',
-                years: '2022 - Present',
+                role: 'Développeur Principal',
+                years: '2022 - Présent',
             },
         ],
     },
@@ -108,24 +91,24 @@ const qualificationData: QualificationItem[] = [
 
 const skillData: SkillItem[] = [
     {
-        title: 'skills',
+        title: 'compétences',
         data: [
             {
                 name: 'HTML, CSS',
             },
             {
-                name: 'Front-end Development',
+                name: 'Développement Front-end',
             },
             {
                 name: 'Javascript, PHP',
             },
             {
-                name: 'Back-end Development',
+                name: 'Développement Back-end',
             },
         ],
     },
     {
-        title: 'tools',
+        title: 'outils',
         data: [
             {
                 imgPath: '/about/vscode.svg',
@@ -143,7 +126,7 @@ const skillData: SkillItem[] = [
     },
 ];
 
-const About: React.FC = () => {
+export default function About() {
     const getData = <T extends { title: string }>(arr: T[], title: string): T | undefined => {
         return arr.find((item) => item.title === title);
     };
@@ -152,7 +135,7 @@ const About: React.FC = () => {
         <section className='xl:h-[860px] pb-12 xl:py-24'>
             <div className='container mx-auto'>
                 <h2 className='section-title mb-8 xl:mb-16 text-center mx-auto'>
-                    About me
+                    Parlons de moi
                 </h2>
                 <div className='flex flex-col xl:flex-row'>
                     {/* image */}
@@ -165,9 +148,10 @@ const About: React.FC = () => {
                     {/* tabs */}
                     <div className='flex-1'>
                         <Tabs defaultValue='personal'>
-                            <TabsList className='w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none'>
+                            <TabsList
+                                className='w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none'>
                                 <TabsTrigger className='w-[162px] xl:w-auto' value='personal'>
-                                    Personal Info
+                                    Infos Personnelles
                                 </TabsTrigger>
                                 <TabsTrigger
                                     className='w-[162px] xl:w-auto'
@@ -176,7 +160,7 @@ const About: React.FC = () => {
                                     Qualifications
                                 </TabsTrigger>
                                 <TabsTrigger className='w-[162px] xl:w-auto' value='skills'>
-                                    Skills
+                                    Compétences
                                 </TabsTrigger>
                             </TabsList>
                             {/* tabs content */}
@@ -185,12 +169,12 @@ const About: React.FC = () => {
                                 <TabsContent value='personal'>
                                     <div className='text-center xl:text-left'>
                                         <h3 className='h3 mb-4'>
-                                            Unmatched Service Quality for Over 10 Years
+                                            Une Qualité de Service Inégalée
                                         </h3>
                                         <p className='subtitle max-w-xl mx-auto xl:mx-0'>
-                                            I specialize in crafting intuitive websites with
-                                            cutting-edge technology, delivering dynamic and engaging
-                                            user experiences.
+                                            Je me spécialise dans la création d&apos;applications intuitives avec
+                                            des technologies de pointe, offrant des expériences utilisateur dynamiques
+                                            et engageantes.
                                         </p>
                                         {/* icons */}
                                         <div className='grid xl:grid-cols-2 gap-4 mb-12'>
@@ -206,9 +190,9 @@ const About: React.FC = () => {
                                         </div>
                                         {/* languages */}
                                         <div className='flex flex-col gap-y-2'>
-                                            <div className='text-primary'>Language Skill</div>
+                                            <div className='text-primary'>Compétences Linguistiques</div>
                                             <div className='border-b border-border'></div>
-                                            <div>English, French, Spanish, Italian</div>
+                                            <div>Français, Anglais (niveau B2)</div>
                                         </div>
                                     </div>
                                 </TabsContent>
@@ -216,14 +200,14 @@ const About: React.FC = () => {
                                 <TabsContent value='qualifications'>
                                     <div>
                                         <h3 className='h3 mb-8 text-center xl:text-left'>
-                                            My Awesome Journey
+                                            Mon Parcours atypique
                                         </h3>
                                         {/* experience & education wrapper */}
                                         <div className='grid md:grid-cols-2 gap-y-8'>
                                             {/* experience */}
                                             <div className='flex flex-col gap-y-6'>
                                                 <div className='flex gap-x-4 items-center text-[22px] text-primary'>
-                                                    <Briefcase />
+                                                    <Briefcase/>
                                                     <h4 className='capitalize font-medium'>
                                                         {getData(qualificationData, 'experience')?.title}
                                                     </h4>
@@ -232,17 +216,21 @@ const About: React.FC = () => {
                                                 <div className='flex flex-col gap-y-8'>
                                                     {getData(qualificationData, 'experience')?.data.map(
                                                         (item, index) => {
-                                                            const { company, role, years } = item;
+                                                            const {company, role, years} = item;
                                                             return (
                                                                 <div className='flex gap-x-8 group' key={index}>
-                                                                    <div className='h-[84px] w-[1px] bg-border relative ml-2'>
-                                                                        <div className='w-[11px] h-[11px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500'></div>
+                                                                    <div
+                                                                        className='h-[84px] w-[1px] bg-border relative ml-2'>
+                                                                        <div
+                                                                            className='w-[11px] h-[11px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500'></div>
                                                                     </div>
                                                                     <div>
-                                                                        <div className='font-semibold text-xl leading-none mb-2'>
+                                                                        <div
+                                                                            className='font-semibold text-xl leading-none mb-2'>
                                                                             {company}
                                                                         </div>
-                                                                        <div className='text-lg leading-none text-muted-foreground mb-4'>
+                                                                        <div
+                                                                            className='text-lg leading-none text-muted-foreground mb-4'>
                                                                             {role}
                                                                         </div>
                                                                         <div className='text-base font-medium'>
@@ -258,7 +246,7 @@ const About: React.FC = () => {
                                             {/* education */}
                                             <div className='flex flex-col gap-y-6'>
                                                 <div className='flex gap-x-4 items-center text-[22px] text-primary'>
-                                                    <GraduationCap size={28} />
+                                                    <GraduationCap size={28}/>
                                                     <h4 className='capitalize font-medium'>
                                                         {getData(qualificationData, 'education')?.title}
                                                     </h4>
@@ -267,17 +255,21 @@ const About: React.FC = () => {
                                                 <div className='flex flex-col gap-y-8'>
                                                     {getData(qualificationData, 'education')?.data.map(
                                                         (item, index) => {
-                                                            const { university, qualification, years } = item;
+                                                            const {university, qualification, years} = item;
                                                             return (
                                                                 <div className='flex gap-x-8 group' key={index}>
-                                                                    <div className='h-[84px] w-[1px] bg-border relative ml-2'>
-                                                                        <div className='w-[11px] h-[11px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500'></div>
+                                                                    <div
+                                                                        className='h-[84px] w-[1px] bg-border relative ml-2'>
+                                                                        <div
+                                                                            className='w-[11px] h-[11px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500'></div>
                                                                     </div>
                                                                     <div>
-                                                                        <div className='font-semibold text-xl leading-none mb-2'>
+                                                                        <div
+                                                                            className='font-semibold text-xl leading-none mb-2'>
                                                                             {university}
                                                                         </div>
-                                                                        <div className='text-lg leading-none text-muted-foreground mb-4'>
+                                                                        <div
+                                                                            className='text-lg leading-none text-muted-foreground mb-4'>
                                                                             {qualification}
                                                                         </div>
                                                                         <div className='text-base font-medium'>
@@ -296,10 +288,10 @@ const About: React.FC = () => {
                                 {/* skills */}
                                 <TabsContent value='skills'>
                                     <div className='text-center xl:text-left'>
-                                        <h3 className='h3 mb-8'>What I Use Everyday</h3>
+                                        <h3 className='h3 mb-8'>Ce que j&apos;utilise au Quotidien</h3>
                                         {/* skills */}
                                         <div className='mb-16'>
-                                            <h4 className='text-xl font-semibold mb-2'>Skills</h4>
+                                            <h4 className='text-xl font-semibold mb-2'>Compétences</h4>
                                             <div className='border-b border-border mb-4'></div>
                                             {/* skill list */}
                                             <div>
@@ -318,13 +310,13 @@ const About: React.FC = () => {
                                         {/* tools */}
                                         <div>
                                             <h4 className='text-xl font-semibold mb-2 xl:text-left'>
-                                                Tools
+                                                Outils
                                             </h4>
                                             <div className='border-b border-border mb-4'></div>
                                             {/* tool list */}
                                             <div className='flex gap-x-8 justify-center xl:justify-start'>
                                                 {getData(skillData, 'tools')?.data.map((item, index) => {
-                                                    const { imgPath } = item;
+                                                    const {imgPath} = item;
                                                     return (
                                                         <div key={index}>
                                                             <Image
@@ -349,5 +341,3 @@ const About: React.FC = () => {
         </section>
     );
 };
-
-export default About;

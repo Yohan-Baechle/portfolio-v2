@@ -1,25 +1,27 @@
 'use client';
-import React, {useEffect, useState} from 'react';
 
-// components
+import { useEffect, useState } from 'react';
 import Logo from './Logo';
 import ThemeToggler from './ThemeToggler';
 import Nav from './Nav';
 import MobileNav from './MobileNav';
-import {usePathname} from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
-const Header = () => {
+export default function Header() {
     const [header, setHeader] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
-        const scrollYPos = window.addEventListener('scroll', () => {
-            window.scrollY > 50 ? setHeader(true) : setHeader(false);
-        });
+        const handleScroll = () => {
+            setHeader(window.scrollY > 50);
+        };
 
-        // remove event
-        return () => window.removeEventListener('scroll', scrollYPos);
-    });
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <header
@@ -31,7 +33,7 @@ const Header = () => {
         >
             <div className='container mx-auto'>
                 <div className='flex justify-between items-center'>
-                    <Logo/>
+                    <Logo />
                     <div className='flex items-center gap-x-6'>
                         {/* nav */}
                         <Nav
@@ -39,10 +41,10 @@ const Header = () => {
                             linkStyles='relative hover:text-primary transition-all'
                             underlineStyles='absolute left-0 top-full h-[2px] bg-primary w-full'
                         />
-                        <ThemeToggler/>
+                        <ThemeToggler />
                         {/* mobile nav */}
                         <div className='xl:hidden'>
-                            <MobileNav/>
+                            <MobileNav />
                         </div>
                     </div>
                 </div>
@@ -50,5 +52,3 @@ const Header = () => {
         </header>
     );
 };
-
-export default Header;

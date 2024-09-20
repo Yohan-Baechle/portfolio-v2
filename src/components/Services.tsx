@@ -10,24 +10,24 @@ const servicesData = [
     },
     {
         icon: <Blocks size={72} strokeWidth={0.8}/>,
-        title: 'Web Development',
+        title: 'Développement Web',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
     },
     {
         icon: <Gem size={72} strokeWidth={0.8}/>,
-        title: 'App Development',
+        title: 'Développement d\'Applications',
         description:
             'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
     },
 ];
 
-const Services = () => {
+export default function Services() {
     return (
         <section className='mb-12 xl:mb-36'>
             <div className='container mx-auto'>
                 <h2 className='section-title mb-12 xl:mb-24 text-center mx-auto'>
-                    My Services
+                    Mes Services
                 </h2>
                 {/* grid items */}
                 <div className='grid xl:grid-cols-3 justify-center gap-y-12 xl:gap-y-24 xl:gap-x-8'>
@@ -57,5 +57,3 @@ const Services = () => {
         </section>
     );
 };
-
-export default Services;

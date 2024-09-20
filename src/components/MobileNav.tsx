@@ -5,7 +5,7 @@ import Nav from './Nav';
 import Logo from './Logo';
 import Socials from './Socials';
 
-const MobileNav = () => {
+export default function MobileNav() {
     return (
         <Sheet>
             <SheetTrigger asChild>
@@ -25,6 +25,6 @@ const MobileNav = () => {
             </SheetContent>
         </Sheet>
     );
-};
+}
 
-export default MobileNav;
+

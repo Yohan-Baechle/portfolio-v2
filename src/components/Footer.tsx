@@ -1,6 +1,8 @@
 import Socials from './Socials';
 
-const Footer = () => {
+export default function Footer() {
+    const currentYear = new Date().getFullYear();
+
     return (
         <footer className='bg-secondary py-12'>
             <div className='container mx-auto'>
@@ -12,12 +14,10 @@ const Footer = () => {
                     />
                     {/* copyright */}
                     <div className='text-muted-foreground'>
-                        Copyright &copy; Ryan Davis. All rights reserved.
+                        Copyright &copy; {currentYear} Yohan Baechlé - Tous droits réservés.
                     </div>
                 </div>
             </div>
         </footer>
     );
 };
-
-export default Footer;
