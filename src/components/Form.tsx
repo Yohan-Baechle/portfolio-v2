@@ -6,7 +6,7 @@ import {z} from 'zod';
 import {Button} from './ui/button';
 import {Input} from './ui/input';
 import {Textarea} from './ui/textarea';
-import {toastPromise, useToast} from "@/hooks/use-toast";
+import {toast} from "sonner";
 
 // Définir le schéma de validation avec Zod
 const schema = z.object({
@@ -20,7 +20,6 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function Form() {
-    const {toast} = useToast(); // Initialiser le toast
     const {
         register,
         handleSubmit,
@@ -40,8 +39,8 @@ export default function Form() {
         };
 
         const sendFormData = async () => {
-            const response = await fetch('/api/contact', { // Assurez-vous que ce chemin est correct
-                method: 'POST',
+            const response = await fetch('/api/contact', {
+                method: 'POST', // Ajouter la méthode POST
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -52,11 +51,12 @@ export default function Form() {
                 throw new Error("Erreur lors de l'envoi du message.");
             }
 
-            reset(); // Réinitialiser le formulaire
+            reset(); // Réinitialiser le formulaire après succès
             return await response.json();
         };
 
-        toastPromise(sendFormData(), {
+
+        toast.promise(sendFormData(), {
             loading: 'Envoi en cours...',
             success: 'Message envoyé avec succès !',
             error: "Erreur lors de l'envoi du message.",
@@ -66,33 +66,32 @@ export default function Form() {
     return (
         <form
             onSubmit={handleSubmit(onSubmit)}
-            className="pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-12"
+            className="pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-12"
         >
-            <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+            <div className="mx-auto lg:mr-0 lg:max-w-lg">
                 <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2">
                     {/* Prénom */}
                     <div>
                         <label htmlFor='firstName'
-                               className='block text-sm font-semibold leading-6 text-zinc-800 dark:text-zinc-100'>
+                               className='block text-sm font-semibold leading-6'>
                             Prénom <sup>*</sup>
                         </label>
                         <div className='mt-1'>
                             <Input
                                 type='text'
                                 id='firstName'
-                                placeholder='Prénom'
                                 {...register('firstName')}
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
+                                className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6 background-red-500`}
                             />
                             {errors.firstName &&
-                                <span className='text-red-500 text-sm absolute'>{errors.firstName.message}</span>}
+                                <span className='absolute text-sm text-red-500'>{errors.firstName.message}</span>}
                         </div>
                     </div>
 
                     {/* Nom */}
                     <div>
                         <label htmlFor='lastName'
-                               className='block text-sm font-semibold leading-6 text-zinc-800 dark:text-zinc-100'>
+                               className='block text-sm font-semibold leading-6'>
                             Nom <sup>*</sup>
                         </label>
                         <div className='mt-1'>
@@ -101,53 +100,51 @@ export default function Form() {
                                 id='lastName'
                                 placeholder='Nom'
                                 {...register('lastName')}
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
+                                className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
                             />
                             {errors.lastName &&
-                                <span className='text-red-500 text-sm absolute'>{errors.lastName.message}</span>}
+                                <span className='absolute text-sm text-red-500'>{errors.lastName.message}</span>}
                         </div>
                     </div>
 
                     {/* Email */}
-                    <div className='sm:col-span-2'>
+                    <div className='mt-2 sm:col-span-2'>
                         <label htmlFor='email'
-                               className='block text-sm font-semibold leading-6 text-zinc-800 dark:text-zinc-100'>
+                               className='block text-sm font-semibold leading-6'>
                             Email <sup>*</sup>
                         </label>
                         <div className='mt-1'>
                             <Input
                                 type='email'
                                 id='email'
-                                placeholder='Email'
                                 {...register('email')}
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
+                                className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
                             />
                             {errors.email &&
-                                <span className='text-red-500 text-sm absolute'>{errors.email.message}</span>}
+                                <span className='absolute text-sm text-red-500'>{errors.email.message}</span>}
                         </div>
                     </div>
 
                     {/* Téléphone */}
-                    <div className='sm:col-span-2'>
+                    <div className='mt-2 sm:col-span-2'>
                         <label htmlFor='phone'
-                               className='block text-sm font-semibold leading-6 text-zinc-800 dark:text-zinc-100'>
+                               className='block text-sm font-semibold leading-6'>
                             Téléphone
                         </label>
                         <div className='mt-1'>
                             <Input
                                 type='tel'
                                 id='phone'
-                                placeholder='Téléphone (facultatif)'
                                 {...register('phone')}
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
+                                className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
                             />
                         </div>
                     </div>
 
                     {/* Message */}
-                    <div className='sm:col-span-2'>
+                    <div className='mt-2 sm:col-span-2'>
                         <label htmlFor='message'
-                               className='block text-sm font-semibold leading-6 text-zinc-800 dark:text-zinc-100'>
+                               className='block text-sm font-semibold leading-6'>
                             Message <sup>*</sup>
                         </label>
                         <div className='mt-1'>
@@ -156,10 +153,10 @@ export default function Form() {
                                 rows={4}
                                 placeholder='Votre message ici...'
                                 {...register('message')}
-                                className={`block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
+                                className={`block w-full rounded-md border-0 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6`}
                             />
                             {errors.message &&
-                                <span className='text-red-500 text-sm absolute'>{errors.message.message}</span>}
+                                <span className='absolute text-sm text-red-500'>{errors.message.message}</span>}
                         </div>
                     </div>
                 </div>

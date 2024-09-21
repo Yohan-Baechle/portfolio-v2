@@ -5,10 +5,10 @@ interface DevImgProps {
     imgSrc: string;
 }
 
-export default function DevImg({ containerStyles, imgSrc }: DevImgProps) {
+export default function DevImg({containerStyles, imgSrc}: DevImgProps) {
     return (
         <div className={`${containerStyles}`}>
-            <Image src={imgSrc} fill priority alt='' />
+            <Image src={imgSrc} fill priority alt='photo de profil'/>
         </div>
     );
 }

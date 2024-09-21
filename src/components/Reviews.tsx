@@ -63,7 +63,7 @@ const Reviews = () => {
     return (
         <section className='mb-12 xl:mb-32'>
             <div className='container mx-auto'>
-                <h2 className='section-title mb-12 text-center mx-auto'>Reviews</h2>
+                <h2 className='mx-auto mb-12 text-center section-title'>Témoignages</h2>
                 {/* slider */}
                 <Swiper
                     slidesPerView={1}
@@ -81,8 +81,8 @@ const Reviews = () => {
                     {reviewsData.map((person, index) => {
                         return (
                             <SwiperSlide key={index}>
-                                <Card className='bg-tertiary dark:bg-secondary/40 p-8 min-h-[300px]'>
-                                    <CardHeader className='p-0 mb-10'>
+                                <Card className='p-8 bg-tertiary min-h-[300px] dark:bg-secondary/40'>
+                                    <CardHeader className='mb-10 p-0'>
                                         <div className='flex items-center gap-x-4'>
                                             {/* image */}
                                             <Image

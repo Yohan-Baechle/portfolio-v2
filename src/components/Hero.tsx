@@ -1,82 +1,87 @@
 import Link from 'next/link';
 import {Button} from './ui/button';
-import {ArrowDown, Briefcase, Download, List, Send, Users} from 'lucide-react';
+import {Download, Send} from 'lucide-react';
+
+import {RiArrowDownSLine, RiBriefcase4Fill, RiTeamFill, RiTodoFill,} from 'react-icons/ri';
+
+// components
 import DevImg from './DevImg';
 import Badge from './Badge';
 import Socials from './Socials';
 
 export default function Hero() {
     return (
-        <section className='py-12 xl:py-24 h-[84vh] xl:pt-28 bg-hero bg-no-repeat bg-bottom bg-cover dark:bg-none'>
+        <section
+            className='bg-cover bg-bottom bg-no-repeat py-12 bg-hero dark:bg-none xl:py-24 xl:pt-28'>
             <div className='container mx-auto'>
                 <div className='flex justify-between gap-x-8'>
-                    {/* texte */}
+                    {/* text */}
                     <div
-                        className='flex max-w-[600px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left'>
-                        <div className='text-sm uppercase font-semibold mb-4 text-primary tracking-[4px]'>
+                        className='mx-auto flex flex-col justify-center text-center max-w-[600px] xl:mx-0 xl:text-left'>
+                        <div className='mb-4 text-sm font-semibold uppercase text-primary tracking-[4px]'>
                             Développeur
                         </div>
-                        <h1 className='h1 mb-4'>Bienvenue, je suis Yohan Baechlé</h1>
-                        <p className='subtitle max-w-[490px] mx-auto xl:mx-0'>
-                            Je vous invite à parcourir et explorer les différentes sections de mon portfolio pour
-                            découvrir une
-                            sélection de mes réalisations antérieures.
+                        <h1 className='mb-4 h1'>Bonjour, je suis Yohan Baechlé</h1>
+                        <p className='mx-auto subtitle max-w-[490px] xl:mx-0'>
+                            Je vous invite à explorer mon portfolio, qui présente un aperçu de mon parcours
+                            professionnel ainsi que les projets que j&apos;ai réalisés.
                         </p>
-                        {/* boutons */}
-                        <div className='flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12'>
+                        {/* buttons */}
+                        <div className='mx-auto mb-12 flex flex-col gap-x-3 gap-y-3 md:flex-row xl:mx-0'>
                             <Link href='/contact'>
                                 <Button className='gap-x-2'>
-                                    Contactez-moi <Send size={18}/>
+                                    Me contacter <Send size={18}/>
                                 </Button>
                             </Link>
-                            <Button variant='secondary' className='gap-x-2'>
-                                Télécharger mon CV
-                                <Download size={18}/>
-                            </Button>
+                            <a href='/Yohan_BAECHLE_CV_FR.pdf' download>
+                                <Button variant='outline' className='gap-x-2'>
+                                    Télécharger mon CV
+                                    <Download size={18}/>
+                                </Button>
+                            </a>
                         </div>
-                        {/* réseaux sociaux */}
+                        {/* socials */}
                         <Socials
                             containerStyles='flex gap-x-6 mx-auto xl:mx-0'
                             iconsStyles='text-foreground text-[22px] hover:text-primary transition-all'
                         />
                     </div>
                     {/* image */}
-                    <div className='hidden xl:flex relative'>
+                    <div className='relative hidden xl:flex'>
                         {/* badge 1 */}
                         <Badge
                             containerStyles='absolute top-[24%] -left-[5rem]'
-                            icon={<Briefcase/>}
+                            icon={<RiBriefcase4Fill/>}
                             endCountNum={3}
-                            endCountText=""
-                            badgeText='Années d’expérience'
+                            badgeText='Years Of Experience'
                         />
                         {/* badge 2 */}
                         <Badge
                             containerStyles='absolute top-[80%] -left-[1rem]'
-                            icon={<List/>}
+                            icon={<RiTodoFill/>}
                             endCountNum={6}
                             endCountText='k'
-                            badgeText='Projets terminés'
+                            badgeText='Finished Projects'
                         />
                         {/* badge 3 */}
                         <Badge
                             containerStyles='absolute top-[55%] -right-8'
-                            icon={<Users/>}
+                            icon={<RiTeamFill/>}
                             endCountNum={9}
                             endCountText='k'
-                            badgeText='Clients satisfaits'
+                            badgeText='Happy Clients'
                         />
                         <div
-                            className='bg-hero_shape2_light dark:bg-hero_shape2_dark w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-2'></div>
+                            className='absolute -top-1 -right-2 bg-no-repeat bg-hero_shape2_light w-[500px] h-[500px] dark:bg-hero_shape2_dark'></div>
                         <DevImg
                             containerStyles='bg-hero_shape w-[510px] h-[462px] bg-no-repeat relative bg-bottom'
-                            imgSrc='/hero/developer.png'
+                            imgSrc='/hero/portrait.jpg'
                         />
                     </div>
                 </div>
-                {/* icône */}
-                <div className='hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 animate-bounce'>
-                    <ArrowDown className='text-3xl text-primary'/>
+                {/* icon */}
+                <div className='mt-24 flex animate-bounce justify-center'>
+                    <RiArrowDownSLine className='text-3xl text-primary'/>
                 </div>
             </div>
         </section>

@@ -19,9 +19,9 @@ const projectData = [
     {
         image: '/work/3.png',
         category: 'react js',
-        name: 'Nexa Website',
+        name: 'Gigpulse',
         description:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, quis.',
+            'Projet qui m\'a permis d`\'obtenir mon titre professionnel DWWM.',
         link: '/',
         github: '/',
     },
@@ -101,21 +101,21 @@ const projectData = [
 
 const Work = () => {
     return (
-        <section className='relative mb-12 xl:mb-48'>
+        <section className='relative mb-32 xl:mb-48'>
             <div className='container mx-auto'>
                 {/* text */}
                 <div
-                    className='max-w-[400px] mx-auto xl:mx-0 text-center xl:text-left mb-12 xl:h-[400px] flex flex-col justify-center items-center xl:items-start'>
-                    <h2 className='section-title mb-4'>Latest Projects</h2>
-                    <p className='subtitle mb-8'>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    className='mx-auto mb-12 flex flex-col items-center justify-center text-center max-w-[400px] xl:h-[400px] xl:mx-0 xl:items-start xl:text-left'>
+                    <h2 className='mb-4 section-title'>Mes réalisations</h2>
+                    <p className='mb-8 subtitle'>
+                        Découvrez mes projets
                     </p>
-                    <Link href='/projects'>
-                        <Button>All projects</Button>
+                    <Link href='/projets'>
+                        <Button>Tous mes projets</Button>
                     </Link>
                 </div>
                 {/* slider */}
-                <div className='xl:max-w-[1000px] xl:absolute right-0 top-0'>
+                <div className='top-0 right-0 xl:max-w-[1000px] xl:absolute'>
                     <Swiper
                         className='h-[480px]'
                         slidesPerView={1}

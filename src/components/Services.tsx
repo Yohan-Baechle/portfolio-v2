@@ -1,45 +1,44 @@
-import {Blocks, GanttChartSquare, Gem} from 'lucide-react';
-import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from '@/components/ui/card';
+import {Code, Monitor, Smartphone} from 'lucide-react';
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 
 const servicesData = [
     {
-        icon: <GanttChartSquare size={72} strokeWidth={0.8}/>,
-        title: 'Web Design',
+        icon: <Monitor size={72} strokeWidth={0.8}/>,
+        title: 'UI / UX',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
+            'Création de sites web modernes et responsive pour offrir une expérience utilisateur optimale.',
     },
     {
-        icon: <Blocks size={72} strokeWidth={0.8}/>,
+        icon: <Code size={72} strokeWidth={0.8}/>,
         title: 'Développement Web',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
+            'Développement d\'applications web Fullstack sécurisées et optimisées SEO.',
     },
     {
-        icon: <Gem size={72} strokeWidth={0.8}/>,
-        title: 'Développement d\'Applications',
+        icon: <Smartphone size={72} strokeWidth={0.8}/>,
+        title: 'Applications Mobile',
         description:
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic quasi libero quidem sit deserunt fuga.',
+            'Conception d\'applications mobiles natives sur mesure pour Android et iOS.',
     },
 ];
 
-export default function Services() {
+const Services = () => {
     return (
-        <section className='mb-12 xl:mb-36'>
+        <section className='mb-32 xl:mb-36'>
             <div className='container mx-auto'>
-                <h2 className='section-title mb-12 xl:mb-24 text-center mx-auto'>
+                <h2 className='mx-auto mb-16 text-center section-title xl:mb-24'>
                     Mes Services
                 </h2>
-                {/* grid items */}
-                <div className='grid xl:grid-cols-3 justify-center gap-y-12 xl:gap-y-24 xl:gap-x-8'>
+                <div className='grid justify-center gap-y-12 xl:grid-cols-3 xl:gap-x-8 xl:gap-y-24'>
                     {servicesData.map((item, index) => {
                         return (
                             <Card
-                                className='w-full max-w-[424px] h-[300px] flex flex-col pt-16 pb-10 justify-center items-center relative'
+                                className='relative flex w-full flex-col items-center justify-center pt-16 pb-10 shadow-md max-w-[424px] h-[300px]'
                                 key={index}
                             >
-                                <CardHeader className='text-primary absolute -top-[60px]'>
+                                <CardHeader className='absolute text-primary -top-[60px]'>
                                     <div
-                                        className='w-[140px] h-[80px] bg-white dark:bg-background flex justify-center items-center'>
+                                        className='flex items-center justify-center w-[140px] h-[80px] bg-background dark:bg-background'>
                                         {item.icon}
                                     </div>
                                 </CardHeader>
@@ -57,3 +56,5 @@ export default function Services() {
         </section>
     );
 };
+
+export default Services;

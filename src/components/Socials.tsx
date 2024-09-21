@@ -1,11 +1,12 @@
 'use client';
 
-import {Github, Linkedin} from 'lucide-react';
+import {RiGithubFill, RiLinkedinBoxFill} from 'react-icons/ri';
 import Link from 'next/link';
+import {ReactNode} from "react";
 
 interface SocialIcon {
     path: string;
-    name: JSX.Element;
+    name: ReactNode;
 }
 
 interface SocialsProps {
@@ -16,11 +17,11 @@ interface SocialsProps {
 const icons: SocialIcon[] = [
     {
         path: 'https://www.linkedin.com/in/yohanbaechle',
-        name: <Linkedin size={24}/>,
+        name: <RiLinkedinBoxFill size={28}/>,
     },
     {
         path: 'https://github.com/Yohan-Baechle',
-        name: <Github size={24}/>,
+        name: <RiGithubFill size={28}/>,
     },
 ];
 
