@@ -33,7 +33,8 @@ const Services = () => {
                     {servicesData.map((item, index) => {
                         return (
                             <Card
-                                className='relative flex w-full flex-col items-center justify-center pt-16 pb-10 shadow-md max-w-[424px] h-[300px]'
+                                className='relative flex w-full flex-col items-center justify-center pt-16 pb-10 shadow-md max-w-[424px] h-[300px]dev
+                                '
                                 key={index}
                             >
                                 <CardHeader className='absolute text-primary -top-[60px]'>

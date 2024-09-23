@@ -12,7 +12,7 @@ import Socials from './Socials';
 export default function Hero() {
     return (
         <section
-            className='bg-cover bg-bottom bg-no-repeat py-12 bg-hero dark:bg-none xl:py-24 xl:pt-28'>
+            className='bg-cover bg-bottom bg-no-repeat py-12 bg-hero dark:bg-hero_dark xl:py-24 xl:pt-28'>
             <div className='container mx-auto'>
                 <div className='flex justify-between gap-x-8'>
                     {/* text */}
@@ -72,10 +72,10 @@ export default function Hero() {
                             badgeText='Happy Clients'
                         />
                         <div
-                            className='absolute -top-1 -right-2 bg-no-repeat bg-hero_shape2_light w-[500px] h-[500px] dark:bg-hero_shape2_dark'></div>
+                            className='absolute -top-1 -right-2 bg-no-repeat w-[500px] h-[500px] bg-hero_shape2_dark'></div>
                         <DevImg
                             containerStyles='bg-hero_shape w-[510px] h-[462px] bg-no-repeat relative bg-bottom'
-                            imgSrc='/hero/portrait.jpg'
+                            imgSrc='/hero/developer.png'
                         />
                     </div>
                 </div>
